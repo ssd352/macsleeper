@@ -95,6 +95,7 @@
 				TargetAttributes = {
 					5CDA407C20E86C7400842CA6 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -280,7 +281,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.ssd352.MacSleeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -299,7 +300,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.ssd352.MacSleeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
