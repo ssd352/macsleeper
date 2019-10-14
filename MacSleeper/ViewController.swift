@@ -14,18 +14,14 @@ class ViewController: NSViewController {
     @IBOutlet weak var countDownLabel: NSTextField!
     @IBOutlet weak var minutesTextField: NSTextField!
     @IBOutlet weak var commandPopUpButton: NSPopUpButton!
-    //    var timer : Timer;
     
-//    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-//        timer = Timer();
-//    }
     var count = 0
     
     @IBAction func startButtonPressed(_ sender: Any) {
         self.countDownLabel.isHidden = false
         let mins = minutesTextField.doubleValue
         Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.upd), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: mins * 60.0, target: self, selector: #selector(self.sleep), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: mins * 60, target: self, selector: #selector(self.sleep), userInfo: nil, repeats: false)
         self.count = Int(mins)
         countDownLabel.stringValue = String(self.count)
     }
@@ -43,7 +39,7 @@ class ViewController: NSViewController {
     }
     
     @objc func sleep(){
-        var source = "tell application \"Finder\" to sleep"
+        var source = "set volume with output muted\ntell application \"Finder\" to sleep"
         if (commandPopUpButton.selectedItem?.title == "Shut Down"){
             source = "tell application \"Finder\" to shut down"
         }
