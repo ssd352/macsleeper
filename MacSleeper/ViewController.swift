@@ -16,12 +16,21 @@ class ViewController: NSViewController {
     @IBOutlet weak var commandPopUpButton: NSPopUpButton!
     
     var count = 0
+    var sleepTimer : Timer?
+    var minuteTimer: Timer?
+    
     
     @IBAction func startButtonPressed(_ sender: Any) {
         self.countDownLabel.isHidden = false
         let mins = minutesTextField.doubleValue
-        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.upd), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: mins * 60, target: self, selector: #selector(self.sleep), userInfo: nil, repeats: false)
+        if let tmp = self.minuteTimer {
+            tmp.invalidate()
+        }
+        if let tmp = self.sleepTimer {
+            tmp.invalidate()
+        }
+        self.minuteTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.upd), userInfo: nil, repeats: true)
+        self.sleepTimer = Timer.scheduledTimer(timeInterval: mins * 60, target: self, selector: #selector(self.sleep), userInfo: nil, repeats: false)
         self.count = Int(mins)
         countDownLabel.stringValue = String(self.count)
     }
