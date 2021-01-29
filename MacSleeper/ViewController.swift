@@ -8,6 +8,7 @@
 
 import Cocoa
 import os.log
+import Automator
 
 class ViewController: NSViewController {
     
@@ -48,9 +49,19 @@ class ViewController: NSViewController {
     }
     
     @objc func sleep(){
+        guard let workflowPath = Bundle.main.path(forResource: "Force-Quit", ofType: "workflow") else {
+                print("Workflow resource not found")
+                return
+            }
         var source = "set volume with output muted\ntell application \"Finder\" to sleep"
+        let workflowURL = URL(fileURLWithPath: workflowPath)
         if (commandPopUpButton.selectedItem?.title == "Shut Down"){
             source = "tell application \"Finder\" to shut down"
+            do {
+                    try AMWorkflow.run(at:workflowURL, withInput: nil)
+            } catch {
+                    print("Error running workflow: \(error)")
+                }
         }
         let script = NSAppleScript(source: source)
         script?.executeAndReturnError(nil)

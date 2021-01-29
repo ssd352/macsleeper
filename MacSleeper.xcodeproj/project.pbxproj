@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C5A03FC25C384790020EC5C /* Force-Quit.workflow in Resources */ = {isa = PBXBuildFile; fileRef = 5C5A03FB25C384790020EC5C /* Force-Quit.workflow */; };
 		5CDA408120E86C7400842CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA408020E86C7400842CA6 /* AppDelegate.swift */; };
 		5CDA408320E86C7400842CA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA408220E86C7400842CA6 /* ViewController.swift */; };
 		5CDA408520E86C7700842CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA408420E86C7700842CA6 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C5A03FB25C384790020EC5C /* Force-Quit.workflow */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Force-Quit.workflow"; sourceTree = "<group>"; };
 		5CDA407D20E86C7400842CA6 /* MacSleeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacSleeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDA408020E86C7400842CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CDA408220E86C7400842CA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				5CDA408020E86C7400842CA6 /* AppDelegate.swift */,
 				5CDA408220E86C7400842CA6 /* ViewController.swift */,
+				5C5A03FB25C384790020EC5C /* Force-Quit.workflow */,
 				5CDA408420E86C7700842CA6 /* Assets.xcassets */,
 				5CDA408620E86C7700842CA6 /* Main.storyboard */,
 				5CDA408920E86C7700842CA6 /* Info.plist */,
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDA408520E86C7700842CA6 /* Assets.xcassets in Resources */,
+				5C5A03FC25C384790020EC5C /* Force-Quit.workflow in Resources */,
 				5CDA408820E86C7700842CA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
