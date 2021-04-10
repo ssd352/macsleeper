@@ -19,6 +19,7 @@ class ViewController: NSViewController {
     var count = 0
     var sleepTimer : Timer?
     var minuteTimer: Timer?
+    var task: Process?
     
     
     @IBAction func startButtonPressed(_ sender: Any) {
@@ -34,6 +35,13 @@ class ViewController: NSViewController {
         self.sleepTimer = Timer.scheduledTimer(timeInterval: mins * 60, target: self, selector: #selector(self.sleep), userInfo: nil, repeats: false)
         self.count = Int(mins)
         countDownLabel.stringValue = String(self.count)
+//        shell(command: "caffeinate -t \(self.count * 60)")
+        if self.task == nil{
+            self.task = Process()
+        }
+        self.task!.launchPath = "/usr/bin/env"
+        self.task!.arguments = ["zsh", "-c", "caffeinate -mid -t \(self.count * 60)"]
+        self.task!.launch()
     }
     
     override func viewDidLoad() {
@@ -49,6 +57,7 @@ class ViewController: NSViewController {
     }
     
     @objc func sleep(){
+        self.task!.waitUntilExit()
         guard let workflowPath = Bundle.main.path(forResource: "Force-Quit", ofType: "workflow") else {
                 print("Workflow resource not found")
                 return
